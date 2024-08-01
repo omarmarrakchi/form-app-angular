@@ -1,0 +1,22 @@
+<div class="login wrap">
+  <form (ngSubmit)="onSubmit()">
+	<input
+	  type="text"
+	  name="email"
+	  id="email"
+	  placeholder="Email"
+	  [(ngModel)]="email"
+	  required
+	/>
+	<input
+	  type="password"
+	  name="password"
+	  id="password"
+	  placeholder="Password"
+	  [(ngModel)]="password"
+	  required
+	/>
+	<input type="button" value="Help!"/>
+	<input type="submit" value="Log in" />
+  </form>
+</div>
