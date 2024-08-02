@@ -1,0 +1,45 @@
+<mat-card class="form-card">
+  <div class="card-header"></div>
+  <mat-card-content>
+    <form class="form">
+      <div class="form-header">
+        <mat-form-field class="full-width question-input">
+          <input matInput placeholder="Form Title" name="formTitle" />
+        </mat-form-field>
+        <mat-form-field class="full-width">
+          <input
+            matInput
+            placeholder="Form Description"
+            name="formDescription"
+          />
+        </mat-form-field>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
+
+<div *ngFor="let question of questions; let i = index" class="form-question">
+  <mat-card class="question-card">
+    <div class="card-header"></div>
+    <mat-card-content>
+      <mat-form-field class="full-width question-input">
+        <input
+          matInput
+          placeholder="Question"
+          [(ngModel)]="question.text"
+          name="question{{ i }}"
+        />
+      </mat-form-field>
+      <button mat-icon-button color="warn" (click)="removeQuestion(i)">
+        <mat-icon>delete</mat-icon>
+      </button>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- Move the add question button outside of the mat-card -->
+<div class="form-footer">
+  <button mat-fab color="primary" (click)="addQuestion()">
+    <mat-icon>add</mat-icon>
+  </button>
+</div>

@@ -1,0 +1,43 @@
+.form-card {
+    margin-top: 20px; /* Add space above the first container */
+    margin-bottom: 16px;
+    padding: 0; /* Remove padding to avoid space between header and content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #ffffff;
+    overflow: hidden; /* Ensure the header stays within the card */
+    width: 80%; /* Adjust the width as needed */
+    margin-left: auto; /* Center the card horizontally */
+    margin-right: auto; /* Center the card horizontally */
+  }
+  
+  .question-card {
+    margin-bottom: 16px;
+    padding: 0; /* Remove padding to avoid space between header and content */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    background-color: #ffffff;
+    overflow: hidden; /* Ensure the header stays within the card */
+    width: 80%; /* Adjust the width as needed */
+    margin-left: auto; /* Center the card horizontally */
+    margin-right: auto; /* Center the card horizontally */
+  }
+  
+  .card-header {
+    height: 5px; /* Adjust the height as needed */
+    background-color: #00add8;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  
+  .question-input {
+    margin-top: 20px; /* Add space above the question input */
+  }
+  
+  .form-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Add space above the footer */
+  }
