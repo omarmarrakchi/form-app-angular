@@ -41,3 +41,32 @@
     justify-content: center;
     margin-top: 20px; /* Add space above the footer */
   }
+  
+  .question-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items vertically centered */
+    width: 100%; /* Ensure the container takes full width */
+  }
+  
+  .options-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+  
+  .option-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .option-input {
+    margin-left: 10px;
+    flex-grow: 1;
+  }
+  
+  .delete-button {
+    margin-top: 10px; /* Add space between the input and the button */
+    align-self: flex-end;
+  }

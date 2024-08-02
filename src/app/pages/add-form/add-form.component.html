@@ -22,21 +22,46 @@
   <mat-card class="question-card">
     <div class="card-header"></div>
     <mat-card-content>
-      <mat-form-field class="full-width question-input">
-        <input
-          matInput
-          placeholder="Question"
-          [(ngModel)]="question.text"
-          name="question{{ i }}"
-        />
-      </mat-form-field>
-      <button mat-icon-button color="warn" (click)="removeQuestion(i)">
-        <mat-icon>delete</mat-icon>
-      </button>
+      <div class="question-container">
+        <mat-form-field class="question-input">
+          <input
+            matInput
+            placeholder="Question"
+            [(ngModel)]="question.text"
+            name="question{{ i }}"
+          />
+        </mat-form-field>
+        <div class="options-container">
+          <mat-radio-group [(ngModel)]="question.answer">
+            <div
+              *ngFor="let option of question.options; let j = index"
+              class="option-item"
+            >
+              <mat-radio-button [value]="option">{{ option }}</mat-radio-button>
+              <input
+                matInput
+                placeholder="Option"
+                [(ngModel)]="question.options[j]"
+                class="option-input"
+              />
+            </div>
+          </mat-radio-group>
+          <button mat-icon-button color="primary" (click)="addOption(i)">
+            <mat-icon>add</mat-icon>
+          </button>
+        </div>
+        <button
+          mat-icon-button
+          color="warn"
+          class="delete-button"
+          (click)="removeQuestion(i)"
+        >
+          <mat-icon>delete</mat-icon>
+        </button>
+      </div>
     </mat-card-content>
   </mat-card>
 </div>
-
 <!-- Move the add question button outside of the mat-card -->
 <div class="form-footer">
   <button mat-fab color="primary" (click)="addQuestion()">
