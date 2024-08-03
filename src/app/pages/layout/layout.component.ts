@@ -18,4 +18,8 @@ export class LayoutComponent {
   navigateToAddForm() {
     this.router.navigate(['/add-form']);
   }
+
+  navigateToDashboard() {
+    this.router.navigate(['/dashboard']);
+  }
 }

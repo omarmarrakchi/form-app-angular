@@ -10,20 +10,20 @@
     margin-left: auto; /* Center the card horizontally */
     margin-right: auto; /* Center the card horizontally */
   }
-  
-  .question-card {
-    margin-bottom: 16px;
-    padding: 0; /* Remove padding to avoid space between header and content */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    background-color: #ffffff;
-    overflow: hidden; /* Ensure the header stays within the card */
-    width: 80%; /* Adjust the width as needed */
-    margin-left: auto; /* Center the card horizontally */
-    margin-right: auto; /* Center the card horizontally */
-  }
-  
-  .card-header {
+
+.question-card {
+  margin-bottom: 16px;
+  padding: 0; /* Remove padding to avoid space between header and content */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  background-color: #ffffff;
+  overflow: hidden; /* Ensure the header stays within the card */
+  width: 80%; /* Adjust the width as needed */
+  margin-left: auto; /* Center the card horizontally */
+  margin-right: auto; /* Center the card horizontally */
+}
+
+.card-header {
     height: 5px; /* Adjust the height as needed */
     background-color: #00add8;
   }
@@ -32,21 +32,17 @@
     width: 100%;
   }
   
-  .question-input {
-    margin-top: 20px; /* Add space above the question input */
-  }
-  
-  .form-footer {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px; /* Add space above the footer */
-  }
-  
   .question-container {
     display: flex;
     flex-direction: column;
     align-items: flex-start; /* Align items vertically centered */
     width: 100%; /* Ensure the container takes full width */
+  }
+  
+  .question-header {
+    display: flex;
+    align-items: center;
+    gap: 16px; /* Adjust the gap as needed */
   }
   
   .options-container {
@@ -59,14 +55,44 @@
     display: flex;
     align-items: center;
     margin-bottom: 5px;
+    gap: 8px; /* Adjust the gap as needed */
   }
   
   .option-input {
     margin-left: 10px;
-    flex-grow: 1;
   }
   
-  .delete-button {
-    margin-top: 10px; /* Add space between the input and the button */
-    align-self: flex-end;
+  .question-type-select {
+    width: 200px; /* Adjust the width as needed */
+    margin-top: 20px; /* Align the select with the input */
+  }
+  
+  .form-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px; /* Add space above the footer */
+  }
+  
+  .question-input {
+    margin-top: 20px;
+    width: 975px; /* Add space above the question input */
+  }
+
+  .form-title{
+    margin-top: 20px;
+  }
+  
+  .question-footer {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px; /* Add space above the footer */
+    width: 100%; /* Ensure the footer takes full width */
+  }
+  
+  .question-footer button {
+    margin-left: auto; /* Push the button to the right */
+  }
+
+  .input-answer{
+    width: 975px;
   }

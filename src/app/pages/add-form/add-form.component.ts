@@ -6,6 +6,7 @@ import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
 import { MatRadioModule } from '@angular/material/radio';
+import { MatOption, MatSelect, MatSelectModule } from '@angular/material/select';
 
 @Component({
   selector: 'app-add-form',
@@ -17,16 +18,18 @@ import { MatRadioModule } from '@angular/material/radio';
     MatInputModule,
     MatIconModule,
     CommonModule,
-    MatRadioModule
+    MatRadioModule,
+    MatOption,
+    MatSelectModule
   ],
   templateUrl: './add-form.component.html',
   styleUrls: ['./add-form.component.scss']
 })
 export class AddFormComponent {
-  questions: { text: string; options: string[]; answer: string }[] = [];
+  questions: { text: string; options: string[]; answer: string, type: 'radio' }[] = [];
 
   addQuestion() {
-    this.questions.push({ text: '', options: ['Option 1'], answer: '' });
+    this.questions.push({ text: '', options: ['Option 1'], answer: '', type: 'radio' });
   }
 
   removeQuestion(index: number) {
