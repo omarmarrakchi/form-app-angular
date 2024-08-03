@@ -5,7 +5,7 @@ import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
 import { MatIconModule } from '@angular/material/icon';
 import { CommonModule } from '@angular/common';
-import { MatRadioButton } from '@angular/material/radio';
+import { MatRadioModule } from '@angular/material/radio';
 
 @Component({
   selector: 'app-add-form',
@@ -17,7 +17,7 @@ import { MatRadioButton } from '@angular/material/radio';
     MatInputModule,
     MatIconModule,
     CommonModule,
-    MatRadioButton
+    MatRadioModule
   ],
   templateUrl: './add-form.component.html',
   styleUrls: ['./add-form.component.scss']
@@ -35,5 +35,13 @@ export class AddFormComponent {
 
   addOption(questionIndex: number) {
     this.questions[questionIndex].options.push('New Option');
+  }
+
+  removeOption(questionIndex: number, optionIndex: number) {
+    this.questions[questionIndex].options.splice(optionIndex, 1);
+  }
+
+  trackByIndex(index: number, item: any): number {
+    return index;
   }
 }
