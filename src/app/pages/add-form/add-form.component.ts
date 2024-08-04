@@ -9,6 +9,8 @@ import { MatRadioModule } from '@angular/material/radio';
 import { MatOption, MatSelect, MatSelectModule } from '@angular/material/select';
 import { MatButtonModule } from '@angular/material/button';
 import { AddFormService } from '../../services/add-form.service';
+import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add-form',
@@ -26,6 +28,7 @@ import { AddFormService } from '../../services/add-form.service';
     MatIconModule,
     MatButtonModule,
     MatInput,
+    RouterModule
   ],
   templateUrl: './add-form.component.html',
   styleUrls: ['./add-form.component.scss']
@@ -36,7 +39,7 @@ export class AddFormComponent {
   formDescription: string = '';
   questions: { text: string; options: string[]; answer: string, type: 'radio' | 'input' }[] = [];
 
-  constructor(private addFormService: AddFormService) {}
+  constructor(private addFormService: AddFormService, private router: Router) {}
 
   addQuestion() {
     this.questions.push({ text: '', options: ['Option 1'], answer: '', type: 'radio' });
@@ -79,5 +82,6 @@ export class AddFormComponent {
         console.error('Error:', error);
       }
     );
+    this.router.navigate(['/dashboard']);
   }
 }
