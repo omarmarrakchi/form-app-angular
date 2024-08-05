@@ -1,0 +1,63 @@
+.container {
+  height: 100vh; /* Full viewport height */
+  background: linear-gradient(to bottom, #00add8 37%, #e8fbff 20%);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.card {
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 650px;
+  margin-top: 190px;
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 10px; /* Adjust the height as needed */
+  background-color: #98eaff; /* Yellow color */
+  border-top-left-radius: 8px; /* Match the border radius of the card */
+  border-top-right-radius: 8px; /* Match the border radius of the card */
+}
+
+.question-container {
+  margin-bottom: 40px; /* Add space between questions */
+}
+
+.question-container:first-of-type {
+  margin-top: 40px; /* Add space above the first question */
+}
+
+.full-width {
+  width: 100%;
+}
+
+.question-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.radio-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.butt-sub {
+  background-color: #00add8;
+  color: white;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  padding: 16px;
+}

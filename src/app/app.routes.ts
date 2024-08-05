@@ -3,6 +3,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/layout/layout.component';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AddFormComponent } from './pages/add-form/add-form.component';
+import { FormResponseComponent } from './pages/form-response/form-response.component';
 
 export const routes: Routes = [
     {
@@ -24,6 +25,10 @@ export const routes: Routes = [
             {
                 path: 'add-form',
                 component: AddFormComponent
+            },
+            {
+                path: 'form-response/:id',
+                component: FormResponseComponent
             }
         ]
     }
