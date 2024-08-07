@@ -4,10 +4,14 @@ import { ActivatedRoute } from '@angular/router';
 import { AddFormService } from '../../services/add-form.service';
 import { CommonModule } from '@angular/common';
 import { MatCard, MatCardModule } from '@angular/material/card';
-import { MatFormField, MatLabel } from '@angular/material/form-field';
+import { MatFormField, MatHint, MatLabel } from '@angular/material/form-field';
 import { MatRadioButton, MatRadioGroup } from '@angular/material/radio';
 import { MatInput } from '@angular/material/input';
 import { MatButtonModule } from '@angular/material/button';
+import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { FormsModule } from '@angular/forms';
 
 interface Option {
   id: number;
@@ -27,10 +31,11 @@ interface Form {
   questions: Question[];
 }
 
+
 @Component({
   selector: 'app-form-response',
   standalone: true,
-  imports: [CommonModule,MatCard, MatCardModule, MatFormField, MatRadioButton, MatRadioGroup, MatLabel, MatCardModule, MatFormField, MatRadioButton, MatRadioGroup, MatLabel, MatInput, MatButtonModule],
+  imports: [CommonModule,MatCard, MatCardModule, MatRadioButton, MatRadioGroup, MatLabel, MatCardModule, MatFormField, MatRadioButton, MatRadioGroup, MatLabel, MatInput, MatButtonModule, MatDatepickerModule, MatNativeDateModule, MatHint, MatFormFieldModule, FormsModule],
   templateUrl: './form-response.component.html',
   styleUrl: './form-response.component.scss'
 })
@@ -41,6 +46,9 @@ export class FormResponseComponent implements OnInit {
     description: '',
     questions: []
   };
+
+  responses: { [key: number]: string | Date } = {};
+
   constructor(private addFormService: AddFormService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
@@ -58,6 +66,10 @@ export class FormResponseComponent implements OnInit {
     } else {
       console.error('No ID found in the URL');
     }
+  }
+
+  onSubmit() {
+    console.log('Responses:', this.responses);
   }
 
 }

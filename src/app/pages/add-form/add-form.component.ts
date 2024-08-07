@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { AddFormService } from '../../services/add-form.service';
 import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
+import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @Component({
   selector: 'app-add-form',
@@ -28,7 +30,9 @@ import { Router } from '@angular/router';
     MatIconModule,
     MatButtonModule,
     MatInput,
-    RouterModule
+    RouterModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   templateUrl: './add-form.component.html',
   styleUrls: ['./add-form.component.scss']
