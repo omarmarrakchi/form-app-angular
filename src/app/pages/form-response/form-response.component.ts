@@ -12,6 +12,7 @@ import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { AddreponseService } from '../../services/addreponse.service';
 
 interface Option {
   id: number;
@@ -49,7 +50,7 @@ export class FormResponseComponent implements OnInit {
 
   responses: { [key: number]: string | Date } = {};
 
-  constructor(private addFormService: AddFormService, private route: ActivatedRoute) { }
+  constructor(private addFormService: AddFormService, private addreponseService: AddreponseService, private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -69,7 +70,21 @@ export class FormResponseComponent implements OnInit {
   }
 
   onSubmit() {
-    console.log('Responses:', this.responses);
+    const formId = this.route.snapshot.paramMap.get('id');
+    const responseWithFormId = {
+      formId: formId,
+      responses: this.responses
+    };
+    console.log('Form ID and Responses:', responseWithFormId);
+
+    this.addreponseService.addResponse(responseWithFormId).subscribe(
+      (response) => {
+        console.log('Response added successfully:', response);
+      },
+      (error) => {
+        console.error('Error adding response:', error);
+      }
+    );
   }
 
 }
