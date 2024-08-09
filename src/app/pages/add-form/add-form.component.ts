@@ -13,6 +13,7 @@ import { RouterModule } from '@angular/router';
 import { Router } from '@angular/router';
 import { MatDatepicker, MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { MatSnackBar, MatSnackBarModule } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-add-form',
@@ -32,7 +33,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInput,
     RouterModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatSnackBarModule
   ],
   templateUrl: './add-form.component.html',
   styleUrls: ['./add-form.component.scss']
@@ -43,7 +45,7 @@ export class AddFormComponent {
   formDescription: string = '';
   questions: { text: string; options: string[]; answer: string, type: 'radio' | 'input' }[] = [];
 
-  constructor(private addFormService: AddFormService, private router: Router) {}
+  constructor(private addFormService: AddFormService, private router: Router, private snackBar: MatSnackBar) {}
 
   addQuestion() {
     this.questions.push({ text: '', options: ['Option 1'], answer: '', type: 'radio' });
@@ -76,16 +78,19 @@ export class AddFormComponent {
       }))
     };
   
-    console.log('Form Data:', formData);
+    console.log('Data:', formData);
   
     this.addFormService.addForm(formData).subscribe(
       response => {
-        console.log('Response from server:', response);
+        console.log('Response:', response);
       },
       error => {
         console.error('Error:', error);
       }
     );
     this.router.navigate(['/dashboard']);
+    this.snackBar.open('ajouté avec succès', 'Fermer', {
+      duration: 2000,
+    });
   }
 }
