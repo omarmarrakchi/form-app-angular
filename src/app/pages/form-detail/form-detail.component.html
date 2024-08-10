@@ -1,0 +1,13 @@
+<div *ngIf="responses.length > 0; else noResponses">
+  <ul>
+    <li *ngFor="let response of responses">
+      <span>{{ response.dateResponse | date : "d MMM yy, h:mm a" }}</span>
+      <button mat-button (click)="viewResponse(response.responseId)">
+        View
+      </button>
+    </li>
+  </ul>
+</div>
+<ng-template #noResponses>
+  <p>No responses found</p>
+</ng-template>
