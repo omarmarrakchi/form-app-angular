@@ -4,6 +4,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { ActivatedRoute } from '@angular/router';
 import { FormDetailsService } from '../../services/form-details.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,7 +21,8 @@ export class FormDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private formDetailsService: FormDetailsService
+    private formDetailsService: FormDetailsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -40,8 +42,7 @@ export class FormDetailComponent implements OnInit {
   }
 
   viewResponse(responseId: string): void {
-    // Logic to view the response details
-    console.log('View response', responseId);
+    this.router.navigate([`/repose-details/${responseId}`]);
   }
 
 }

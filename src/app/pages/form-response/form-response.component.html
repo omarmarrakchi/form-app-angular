@@ -1,4 +1,5 @@
 <div class="container">
+  <img src="medianet2.png" class="img-logo" alt="" />
   <mat-card class="card">
     <mat-card-header>
       <mat-card-title>
@@ -13,13 +14,25 @@
           <div *ngIf="question.type === 'input'">
             <label class="question-label">{{ question.questionText }}</label>
             <mat-form-field appearance="fill" class="full-width">
-              <input matInput type="text" [(ngModel)]="responses[question.id]" name="question-{{question.id}}" />
+              <input
+                matInput
+                type="text"
+                [(ngModel)]="responses[question.id]"
+                name="question-{{ question.id }}"
+              />
             </mat-form-field>
           </div>
           <div *ngIf="question.type === 'radio'">
             <label class="question-label">{{ question.questionText }}</label>
-            <mat-radio-group class="radio-group" [(ngModel)]="responses[question.id]" name="question-{{question.id}}">
-              <mat-radio-button *ngFor="let option of question.options" [value]="option.optionText">
+            <mat-radio-group
+              class="radio-group"
+              [(ngModel)]="responses[question.id]"
+              name="question-{{ question.id }}"
+            >
+              <mat-radio-button
+                *ngFor="let option of question.options"
+                [value]="option.optionText"
+              >
                 {{ option.optionText }}
               </mat-radio-button>
             </mat-radio-group>
@@ -29,9 +42,17 @@
             <label class="question-label">{{ question.questionText }}</label>
             <mat-form-field appearance="fill" class="full-width">
               <mat-label>Choose a date</mat-label>
-              <input matInput [matDatepicker]="picker" [(ngModel)]="responses[question.id]" name="question-{{question.id}}" />
+              <input
+                matInput
+                [matDatepicker]="picker"
+                [(ngModel)]="responses[question.id]"
+                name="question-{{ question.id }}"
+              />
               <mat-hint>MM/DD/YYYY</mat-hint>
-              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
               <mat-datepicker #picker></mat-datepicker>
             </mat-form-field>
           </div>

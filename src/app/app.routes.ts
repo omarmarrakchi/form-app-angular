@@ -5,6 +5,7 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { AddFormComponent } from './pages/add-form/add-form.component';
 import { FormResponseComponent } from './pages/form-response/form-response.component';
 import { FormDetailComponent } from './pages/form-detail/form-detail.component';
+import { ReponseDetalComponent } from './pages/reponse-detal/reponse-detal.component';
 
 export const routes: Routes = [
     {
@@ -27,14 +28,19 @@ export const routes: Routes = [
                 path: 'add-form',
                 component: AddFormComponent
             },
-            {
-                path: 'form-response/:id',
-                component: FormResponseComponent
-            },
+            
             {
                 path: 'form-details/:id',
                 component: FormDetailComponent
+            }, 
+            {
+                path: 'repose-details/:id',
+                component: ReponseDetalComponent
             }
         ]
-    }
+    },
+    {
+        path: 'form-response/:id',
+        component: FormResponseComponent
+    },
 ];

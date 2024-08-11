@@ -1,0 +1,66 @@
+<div class="container">
+  <mat-card class="card">
+    <mat-card-header>
+      <mat-card-title>
+        <h4>{{ form.formTitle }}</h4>
+      </mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <span style="font-size: 21px">{{ form.formDescription }}</span>
+
+      <div *ngFor="let question of form.questions" class="question-container">
+        <div *ngIf="question.type === 'input'">
+          <label class="question-label">{{ question.questionText }}</label>
+          <mat-form-field appearance="fill" class="full-width">
+            <input
+              matInput
+              type="text"
+              name="question-{{ question.id }}"
+              [value]="question.responseText"
+              readonly="true"
+            />
+          </mat-form-field>
+        </div>
+        
+        <div *ngIf="question.type === 'radio'">
+          <label class="question-label">{{ question.questionText }}</label>
+          <mat-radio-group
+            class="radio-group"
+            name="question-{{ question.id }}"
+            [(ngModel)]="question.responseText"
+          >
+            <mat-radio-button
+              *ngFor="let option of question.options"
+              [value]="option.optionText"
+              class="readonly-radio"
+            >
+              {{ option.optionText }}
+            </mat-radio-button>
+          </mat-radio-group>
+          <p>Selected Response: {{ question.responseText }}</p>
+        </div>
+
+        <div *ngIf="question.type === 'date'">
+          <label class="question-label">{{ question.questionText }}</label>
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Choose a date</mat-label>
+            <input
+              matInput
+              [matDatepicker]="picker"
+              name="question-{{ question.id }}"
+              [value]="question.responseText"
+              readonly="true"
+            />
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle
+              matIconSuffix
+              [for]="picker"
+            ></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+          </mat-form-field>
+        </div>
+      </div>
+      <mat-card-actions class="actions"> </mat-card-actions>
+    </mat-card-content>
+  </mat-card>
+</div>
