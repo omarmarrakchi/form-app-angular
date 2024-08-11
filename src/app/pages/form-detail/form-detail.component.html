@@ -1,3 +1,7 @@
+<h1 class="page-title">
+  Total Responses: {{ totalResponses }}
+</h1>
+
 <div *ngIf="responses.length > 0; else noResponses">
   <ul>
     <li *ngFor="let response of responses">

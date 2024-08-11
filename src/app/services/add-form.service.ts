@@ -25,4 +25,9 @@ export class AddFormService {
   getFormById(id: number): Observable<any> {
     return this.http.get(this.getFormByIdUrl + id);
   }
+
+    deleteForm(id: number): Observable<any> {
+    const url = `http://127.0.0.1:8000/form/delete/${id}`;
+    return this.http.delete(url);
+  }
 }

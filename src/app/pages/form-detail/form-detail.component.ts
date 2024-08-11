@@ -18,6 +18,7 @@ export class FormDetailComponent implements OnInit {
 
   formId: string = '';
   responses: any[] = [];
+  totalResponses: number = 0;
 
   constructor(
     private route: ActivatedRoute,
@@ -33,7 +34,8 @@ export class FormDetailComponent implements OnInit {
   loadFormResponses(): void {
     this.formDetailsService.getFormResponses(this.formId).subscribe(
       (data) => {
-        this.responses = data;
+        this.responses = data.responses;
+        this.totalResponses = data.totalResponses;
       },
       (error) => {
         console.error('Error fetching form responses', error);

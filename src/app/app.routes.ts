@@ -6,6 +6,7 @@ import { AddFormComponent } from './pages/add-form/add-form.component';
 import { FormResponseComponent } from './pages/form-response/form-response.component';
 import { FormDetailComponent } from './pages/form-detail/form-detail.component';
 import { ReponseDetalComponent } from './pages/reponse-detal/reponse-detal.component';
+import { ThanksPageComponent } from './pages/thanks-page/thanks-page.component';
 
 export const routes: Routes = [
     {
@@ -43,4 +44,8 @@ export const routes: Routes = [
         path: 'form-response/:id',
         component: FormResponseComponent
     },
+    {
+        path: 'thanks',
+        component: ThanksPageComponent
+    }
 ];

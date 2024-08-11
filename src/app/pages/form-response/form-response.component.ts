@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AddFormService } from '../../services/add-form.service';
 import { CommonModule } from '@angular/common';
 import { MatCard, MatCardModule } from '@angular/material/card';
@@ -50,7 +50,7 @@ export class FormResponseComponent implements OnInit {
 
   responses: { [key: number]: string | Date } = {};
 
-  constructor(private addFormService: AddFormService, private addreponseService: AddreponseService, private route: ActivatedRoute) { }
+  constructor(private addFormService: AddFormService, private addreponseService: AddreponseService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
@@ -85,6 +85,7 @@ export class FormResponseComponent implements OnInit {
         console.error('Error adding response:', error);
       }
     );
+    this.router.navigateByUrl('/thanks');
   }
 
 }
